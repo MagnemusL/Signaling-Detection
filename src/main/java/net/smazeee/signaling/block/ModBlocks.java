@@ -19,7 +19,12 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, SignalingDetection.MOD_ID);
 
-public static final RegistryObject<Block> TEST_BLOCK = BLOCKS.register("test_block",
+    /*public static final RegistryObject<Block> TEST_BLOCK = BLOCKS.register("test_block",
+            () -> new TestBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+     */
+
+    public static final RegistryObject<Block> BLOCK_DETECTOR = BLOCKS.register("block_detector",
             () -> new TestBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

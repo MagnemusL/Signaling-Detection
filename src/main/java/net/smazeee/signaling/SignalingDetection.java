@@ -13,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.smazeee.signaling.block.ModBlocks;
+import net.smazeee.signaling.block.entity.ModBlockEntities;
 import net.smazeee.signaling.item.ModItems;
 import org.slf4j.Logger;
 
@@ -28,6 +29,7 @@ public class SignalingDetection {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
