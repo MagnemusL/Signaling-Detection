@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "signaling:block/block_detector"
+    }
+  }
+}

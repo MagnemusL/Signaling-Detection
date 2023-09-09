@@ -16,8 +16,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, SignalingDetection.MOD_ID);
 
-    public static final RegistryObject<BlockItem> TEST_BLOCK = ITEMS.register("test_block",
-            () -> new Test(ModBlocks.TEST_BLOCK.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<BlockItem> TEST_BLOCK = ITEMS.register("block_detector",
+            () -> new Test(ModBlocks.BLOCK_DETECTOR.get(), new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

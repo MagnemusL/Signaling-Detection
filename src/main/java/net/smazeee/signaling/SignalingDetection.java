@@ -1,6 +1,7 @@
 package net.smazeee.signaling;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,6 +16,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.smazeee.signaling.block.ModBlocks;
 import net.smazeee.signaling.block.entity.ModBlockEntities;
 import net.smazeee.signaling.item.ModItems;
+import net.smazeee.signaling.screen.BlockDetectorScreen;
+import net.smazeee.signaling.screen.ModMenuTypes;
 import org.slf4j.Logger;
 
 @Mod(SignalingDetection.MOD_ID)
@@ -30,6 +33,7 @@ public class SignalingDetection {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -43,8 +47,8 @@ public class SignalingDetection {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.TEST_BLOCK);
-            event.accept(ModBlocks.TEST_BLOCK);
+            //event.accept(ModItems.TEST_BLOCK);
+            //event.accept(ModBlocks.TEST_BLOCK);
         }
     }
 
@@ -59,6 +63,7 @@ public class SignalingDetection {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            MenuScreens.register(ModMenuTypes.BLOCK_DETECTOR_MENU.get(), BlockDetectorScreen::new);
         }
     }
 }
